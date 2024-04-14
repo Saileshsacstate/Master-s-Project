@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Review Ratings</title>
+    <style>
+        body, html {
+          
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #ff8989; /* Light background color for the header */
+            padding: 10px;
+            text-align: center;
+            border-radius: 50px;
+            transition: border-color 0.3s ease;
+        }
+            .header:hover {
+                border-color: #595cff;
+            }
+
+
+        .bg {
+            background-image: url('C:\Users\saileshkumar\Pictures\restaurant_table.jpg');
+            background: linear-gradient(to top, #40c9ff 0%, #e81cff 100%);
+            height: 100%;
+            background-color: #cfcca5 background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            border-radius: 40px;
+            
+        }
+           
+        .search-container {
+            text-align: center;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        .search-box {
+            padding: 10px;
+            border: 2px solid #000; 
+            font-size: 16px;
+            border-radius: 5px;
+            width: 300px; 
+            transition: border-color 0.3s ease;
+        }
+            .search-box:hover {
+                border-color: #4CAF50; 
+            }
+        .search-button {
+            padding: 15px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+            .search-button:hover {
+                background-color: #367c39; 
+            }
+      
+
+        .ratings {
+            position: absolute;
+            top: 40%;
+            bottom: 20px;
+            left:inherit;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome to the Homepage</h2> 
+    </div>
+    <div class="bg">
+        <div class="search-container">
+            <h1>Enter Restaurant Name</h1>
+            <form action="/process" method="post">
+                <input type="text" name="sentences123" class="search-box" placeholder="Search for a restaurant...">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+        {% if average_service_rating %}
+        <div class="ratings">
+            <p><strong>Service Rating:</strong> {{ average_service_rating }}</p>
+            <p><strong>Food Rating:</strong> {{ average_food_rating }}</p>
+            <p><strong>Place Rating:</strong> {{ average_place_rating }}</p>
+            <p><strong>Experience Rating:</strong> {{ average_experience_rating }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+                                                  
